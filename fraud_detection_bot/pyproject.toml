@@ -1,0 +1,23 @@
+[project]
+name = "fraud_detection_bot"
+version = "0.1.0"
+description = "fraud_detection_bot using crewAI"
+authors = [{ name = "Akhila Yellapragada", email = "akhilay27@gmail.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai[tools]>=0.130.0,<1.0.0"
+]
+
+[project.scripts]
+fraud_detection_bot = "fraud_detection_bot.main:run"
+run_crew = "fraud_detection_bot.main:run"
+train = "fraud_detection_bot.main:train"
+replay = "fraud_detection_bot.main:replay"
+test = "fraud_detection_bot.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"

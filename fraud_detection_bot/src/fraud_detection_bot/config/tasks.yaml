@@ -1,0 +1,26 @@
+detection_task:
+  description: >
+    Analyze transaction {data} to identify and flag potential fraud patterns and provide detailed explanations for findings.
+  expected_output: >
+    A JSON string indicating flagged transactions with explanations and fraud scores.
+  agent: detector
+
+
+  inputs:
+    - name: data
+      type: list
+      description: >
+        A list of transaction records, each containing fields like transaction_id, amount, location, time, and customer_id.
+
+reviewer_task:
+  description: >
+    Review flagged transactions from the detector agent and provide recommendations for further action.
+  expected_output: >
+    Recommendations for each flagged transaction, including whether to escalate, approve, or reject.
+  agent: reviewer
+
+  inputs:
+    - name: flagged_transactions
+      type: list
+      description: >
+        A list of flagged transactions from the detector agent, each containing transaction_id, fraud_score, and explanation.
